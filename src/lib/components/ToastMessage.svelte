@@ -1,21 +1,21 @@
 <script lang="ts">
-	import type { Renderable, Toast } from '../core/types';
+	import type { Toast } from '../core/types';
 
 	interface Props {
 		toast: Toast;
 	}
 
 	let { toast }: Props = $props();
-
-	let Message: Renderable<Record<string, any>> = $state(toast.message);
 </script>
 
-<div class="message" {...toast.ariaProps}>
-	{#if typeof toast.message === 'string'}
-		{toast.message}
-	{:else}
-		<Message {toast} {...toast.props} />
-	{/if}
+<div {...toast.ariaProps}>
+	<div id="status" class="message">
+		{#if typeof toast.message === 'string'}
+			{toast.message}
+		{:else}
+			<toast.message {toast} {...toast.props} />
+		{/if}
+	</div>
 </div>
 
 <style>

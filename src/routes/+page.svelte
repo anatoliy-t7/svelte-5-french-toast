@@ -10,9 +10,13 @@
 	function launchToast() {
 		toast.promise(
 			new Promise((resolve, reject) => {
-				setTimeout(Math.random() < 0.8 ? resolve : reject, 1000);
+				setTimeout(Math.random() < 0.8 ? resolve : reject, 3000);
 			}),
-			{ loading: 'Toasting bread...', success: 'Here’s your toast!', error: 'Your toast burned :(' }
+			{
+				loading: 'Toasting bread...',
+				success: 'Here’s your toast!',
+				error: 'Your toast burned :('
+			}
 		);
 	}
 
@@ -60,6 +64,7 @@
 		</p>
 		<div class="flex items-center mt-10 space-x-4">
 			<button
+				aria-describedby="status"
 				on:click={launchToast}
 				class="flex items-center space-x-2 text-lg py-2 font-bold px-5 rounded-xl bg-amber-300 border-2 border-amber-400 shadow"
 			>
