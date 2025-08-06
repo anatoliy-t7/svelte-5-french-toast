@@ -25,10 +25,6 @@ const createToast = <T extends Record<string, any> = Record<string, any>>(
 	createdAt: Date.now(),
 	visible: true,
 	type,
-	ariaProps: {
-		role: 'status',
-		'aria-live': 'polite'
-	},
 	message,
 	pauseDuration: 0,
 	icon: opts?.icon,

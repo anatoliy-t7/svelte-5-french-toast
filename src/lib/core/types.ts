@@ -55,11 +55,6 @@ export interface Toast<T extends Record<string, any> = Record<string, any>> {
 	// We are already passing the toast to the component, and it should not be included in props.
 	props?: Omit<T, 'toast'>;
 
-	ariaProps: {
-		role: 'status' | 'alert';
-		'aria-live': 'assertive' | 'off' | 'polite';
-	};
-
 	style?: string;
 	className?: string;
 	iconTheme?: IconTheme;
@@ -76,15 +71,7 @@ export type DOMToast<T extends Record<string, any> = Record<string, any>> = Toas
 export type ToastOptions<T extends Record<string, any> = Record<string, any>> = Partial<
 	Pick<
 		Toast<T>,
-		| 'id'
-		| 'icon'
-		| 'duration'
-		| 'ariaProps'
-		| 'className'
-		| 'style'
-		| 'position'
-		| 'iconTheme'
-		| 'props'
+		'id' | 'icon' | 'duration' | 'className' | 'style' | 'position' | 'iconTheme' | 'props'
 	>
 >;
 

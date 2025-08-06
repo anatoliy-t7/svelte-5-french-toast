@@ -8,14 +8,12 @@
 	let { toast }: Props = $props();
 </script>
 
-<div {...toast.ariaProps}>
-	<div id="status" class="message">
-		{#if typeof toast.message === 'string'}
-			{toast.message}
-		{:else}
-			<toast.message {toast} {...toast.props} />
-		{/if}
-	</div>
+<div class="message">
+	{#if typeof toast.message === 'string'}
+		{toast.message}
+	{:else}
+		<toast.message {toast} {...toast.props} />
+	{/if}
 </div>
 
 <style>

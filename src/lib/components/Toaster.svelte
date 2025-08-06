@@ -37,11 +37,12 @@
 </script>
 
 <div
+	aria-live="polite"
+	role="status"
 	class="toaster {containerClassName || ''}"
 	style={containerStyle}
 	onmouseenter={handlers.startPause}
 	onmouseleave={handlers.endPause}
-	role="alert"
 >
 	{#each _toasts as toast (toast.id)}
 		<ToastWrapper {toast} setHeight={(height) => handlers.updateHeight(toast.id, height ?? 0)} />
